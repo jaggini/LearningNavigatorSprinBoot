@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.LearninigNavigatorSpringSecurityAuth.model.Exam;
+import com.example.LearninigNavigatorSpringSecurityAuth.model.Student;
 import com.example.LearninigNavigatorSpringSecurityAuth.repository.ExamRepository;
 import com.example.LearninigNavigatorSpringSecurityAuth.repository.StudentRepository;
-import com.example.LearninigNavigatorSpringSecurityAuth.model.Student;
-import com.example.LearninigNavigatorSpringSecurityAuth.model.Exam;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -23,9 +23,11 @@ public class ExamService {
         Exam e = examRepository.findById(examId).orElseThrow(() -> new EntityNotFoundException("exam not found"));
 
         Student s = studentRepository.findById(studentiId).orElseThrow(() -> new EntityNotFoundException("Student not found"));
-        if (!s.getSubjects().contains(e.getSubjects())) {
-            throw new IllegalStateException("Student is not enrolled in the corresponding subjects");
-        }
+       
+        // if (!s.getSubjects().contains(e.getSubjects())) {
+            
+        //     throw new IllegalStateException("Student is not enrolled in the corresponding subjects");
+        // }
         s.getExam().add(e);
         studentRepository.save(s);
         

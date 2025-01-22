@@ -7,30 +7,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.LearninigNavigatorSpringSecurityAuth.model.Student;
 import com.example.LearninigNavigatorSpringSecurityAuth.serviece.StudentService;
-import com.example.LearninigNavigatorSpringSecurityAuth.model.Student;
 
 @RestController
 @RequestMapping("/student")
-public class StudentController
-{
+public class StudentController {
+
     @Autowired
     private StudentService studentService;
 
-@PostMapping
-public ResponseEntity<Student> addStudent(@RequestBody Student s )
-{
-    return ResponseEntity.ok(studentService.createStudent(s));
-}
-@GetMapping("{id}")
-public ResponseEntity<Student> getStudent(@PathVariable Long id)
-{
-    return ResponseEntity.ok(studentService.getStudent(id));
-}
-   
+    @PostMapping
+    public ResponseEntity<Student> addStudent(@RequestBody Student s) {
+        return ResponseEntity.ok(studentService.createStudent(s));
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+        return ResponseEntity.ok(studentService.getStudent(id));
+    }
     
+
 }

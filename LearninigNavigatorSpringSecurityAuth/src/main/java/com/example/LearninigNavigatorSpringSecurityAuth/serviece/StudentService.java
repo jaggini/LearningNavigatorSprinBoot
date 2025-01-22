@@ -1,13 +1,13 @@
 package com.example.LearninigNavigatorSpringSecurityAuth.serviece;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-
-import com.example.LearninigNavigatorSpringSecurityAuth.repository.StudentRepository;
 import com.example.LearninigNavigatorSpringSecurityAuth.model.Student;
-import com.example.LearninigNavigatorSpringSecurityAuth.repository.ExamRepository;
+import com.example.LearninigNavigatorSpringSecurityAuth.repository.StudentRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -19,8 +19,6 @@ public class StudentService {
 
 
 
-    @Autowired
-    private ExamRepository examRepository;
 
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;

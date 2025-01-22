@@ -19,7 +19,7 @@ class LearninigNavigatorSpringSecurityAuthApplicationTests {
     @Autowired
     private MockMvc mockMvc;
 
-   @MockitoBean
+    @MockitoBean
     private ExamService examService;
 
     @Test
