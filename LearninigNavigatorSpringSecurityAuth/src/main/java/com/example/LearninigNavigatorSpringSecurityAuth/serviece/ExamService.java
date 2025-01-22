@@ -19,26 +19,27 @@ public class ExamService {
 
     @Autowired
     private StudentRepository studentRepository;
-    public void register( long studentiId,Long examId) {
-        Exam e = examRepository.findById(examId).orElseThrow(() -> new EntityNotFoundException("exam not found"));
 
+    public void register(long studentiId, Long examId) {
         Student s = studentRepository.findById(studentiId).orElseThrow(() -> new EntityNotFoundException("Student not found"));
-       
-        // if (!s.getSubjects().contains(e.getSubjects())) {
-            
-        //     throw new IllegalStateException("Student is not enrolled in the corresponding subjects");
-        // }
+
+        Exam e = examRepository.findById(examId).orElseThrow(() -> new EntityNotFoundException("Exam not Found"));
+
+        if (!s.getEnrolledsubjects().contains(e.getSubject())) {
+            throw new IllegalStateException("Student must be enrollled in the subject to register for the exam");
+
+        }
         s.getExam().add(e);
+
         studentRepository.save(s);
-        
     }
 
-    public  String getNumberFact(int number)
-    {
-      RestTemplate restTemplate=new RestTemplate();
-      String url="http://numbersapi.com/"+number;
-      return restTemplate.getForObject(url, String.class);
-      
+
+    public String getNumberFact(int number) {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://numbersapi.com/" + number;
+        return restTemplate.getForObject(url, String.class);
+
     }
 
 }
