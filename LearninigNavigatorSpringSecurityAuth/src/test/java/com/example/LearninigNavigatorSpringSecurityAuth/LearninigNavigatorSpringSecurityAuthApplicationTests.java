@@ -10,10 +10,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.LearninigNavigatorSpringSecurityAuth.controller.StudentController;
+import com.example.LearninigNavigatorSpringSecurityAuth.controller.EsterController;
+
 import com.example.LearninigNavigatorSpringSecurityAuth.serviece.ExamService;
 
-@WebMvcTest(StudentController.class)
+@WebMvcTest(EsterController.class)
 class LearninigNavigatorSpringSecurityAuthApplicationTests {
 
     @Autowired
